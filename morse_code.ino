@@ -13,9 +13,9 @@ void write_morse(String in);
 void dit(void);
 void dash(void);
 
-void setup() {                
+void setup() {
   // initialize the digital pin as an output.
-  pinMode(led, OUTPUT);    
+  pinMode(led, OUTPUT);
 }
 
 void loop() {
@@ -30,7 +30,7 @@ void write_morse(String input){
     } else {
       delay(WORD_DELAY);
     }
-  } 
+  }
 }
 
 void morse_char(char morse){
