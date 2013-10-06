@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 #define dit_length 300 //dit length
 #define dash_length dit_length* 3 //dash length
