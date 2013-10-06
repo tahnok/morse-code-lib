@@ -2,9 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define dit_length 300 //dit length
-#define dash_length dit_length* 3 //dash length
-
 // Hex table
 // 00 01 => 1
 // 00 10 => 2
