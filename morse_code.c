@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define dit_length 300 //dit length
 #define dash_length dit_length* 3 //dash length
@@ -48,18 +49,27 @@ int morse[26] = {
   0x5A, //z => --.. => 10 10 01 01 => 01 01 10 10
 };
 
-void print_morse();
+void print_morse_char();
+void print_morse_word();
+void print_alphabet();
 
 int main(){
-  int i = 0;
-  for(i = 0; i < 26; i++){
-    printf("%c: ", i + 97);
-    print_morse(morse[i]);
-  };
+  print_alphabet();
+  print_morse_word("wesley");
+  printf("\n");
   return 0;
 }
 
-void print_morse(int encoded_char) {
+void print_morse_word(char word[]){
+  int length = strlen(word);
+  int i = 0;
+  for(i = 0; i < length; i++){
+    int letter = word[i] - 97;
+    print_morse_char(morse[letter]);
+  }
+}
+
+void print_morse_char(int encoded_char) {
   do {
     int tmp = encoded_char % 4;
     encoded_char = encoded_char / 4;
@@ -69,5 +79,14 @@ void print_morse(int encoded_char) {
       printf(".");
     }
   } while (encoded_char != 0);
-  printf("\n");
+  printf(" ");
+}
+
+void print_alphabet(){
+  int i = 0;
+  for(i = 0; i < 26; i++){
+    printf("%i) %c: ", i, i + 97);
+    print_morse_char(morse[i]);
+    printf("\n");
+  };
 }
